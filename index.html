@@ -6,13 +6,13 @@
     <title>Jean Decian - Skills Wall</title>
     <style>
       :root {
-        --card-beginner-bg: #e3f2fd;
-        --card-beginner-border: #bbdefb;
-        --card-beginner-text: #0d47a1;
+        --card-level-1-bg: #e3f2fd;
+        --card-level-1-border: #bbdefb;
+        --card-level-1-text: #0d47a1;
 
-        --card-intermediate-bg: #fff3e0;
-        --card-intermediate-border: #ffe0b2;
-        --card-intermediate-text: #e65100;
+        --card-level-2-bg: #fff3e0;
+        --card-level-2-border: #ffe0b2;
+        --card-level-2-text: #e65100;
       }
 
       body {
@@ -84,14 +84,14 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
       }
 
-      .skill-card.level-beginner {
-        background-color: var(--card-beginner-bg);
-        border: 1px solid var(--card-beginner-border);
+      .skill-card.level-1 {
+        background-color: var(--card-level-1-bg);
+        border: 1px solid var(--card-level-1-border);
       }
 
-      .skill-card.level-intermediate {
-        background-color: var(--card-intermediate-bg);
-        border: 1px solid var(--card-intermediate-border);
+      .skill-card.level-2 {
+        background-color: var(--card-level-2-bg);
+        border: 1px solid var(--card-level-2-border);
       }
 
       .skill-name {
@@ -108,12 +108,12 @@
         font-weight: 600;
       }
 
-      .level-beginner .skill-meta {
-        color: var(--card-beginner-text);
+      .level-1 .skill-meta {
+        color: var(--card-level-1-text);
       }
 
-      .level-intermediate .skill-meta {
-        color: var(--card-intermediate-text);
+      .level-2 .skill-meta {
+        color: var(--card-level-2-text);
       }
     </style>
   </head>
@@ -125,6 +125,11 @@
     <main id="skills-container">Loading skills...</main>
     <script type="module">
       const container = document.getElementById("skills-container");
+
+      const levelMap = {
+        beginner: "level-1",
+        intermediate: "level-2",
+      };
 
       try {
         const res = await fetch("skills.json");
@@ -157,9 +162,12 @@
 
             groups[provider].forEach((item) => {
               const card = document.createElement("li");
-              const levelClass = item.level
-                ? `level-${item.level.toLowerCase()}`
+
+              const rawLevel = item.level
+                ? String(item.level).toLowerCase()
                 : "";
+              const levelClass = levelMap[rawLevel] || "level-1";
+
               card.className = `skill-card ${levelClass}`;
 
               const year = item.date ? item.date.split("-")[0] : "";
