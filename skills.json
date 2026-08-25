@@ -1,0 +1,104 @@
+[
+  {
+    "name": "AI Fundamentals with IBM SkillsBuild",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-08-20",
+    "level": "Beginner"
+  },
+  {
+    "name": "Computer Hardware Basics",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-08-25",
+    "level": "Beginner"
+  },
+  {
+    "name": "Creating Compelling Reports",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-08-17",
+    "level": "Beginner"
+  },
+  {
+    "name": "Cyber Threat Management",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-10-24",
+    "level": "Beginner"
+  },
+  {
+    "name": "Digital Awareness",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-09-30",
+    "level": "Beginner"
+  },
+  {
+    "name": "Endpoint Security",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-09-30",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Engaging Stakeholders for Success",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-09-30",
+    "level": "Beginner"
+  },
+  {
+    "name": "English for IT 1",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-09-30",
+    "level": "Intermediate"
+  },
+  {
+    "name": "English for IT 2",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-10-05",
+    "level": "Intermediate"
+  },
+  {
+    "name": "Introduction to Cybersecurity",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-01-14",
+    "level": "Beginner"
+  },
+  {
+    "name": "Introduction to Modern AI",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-11-26",
+    "level": "Beginner"
+  },
+  {
+    "name": "Network Defense",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-10-04",
+    "level": "Beginner"
+  },
+  {
+    "name": "Network Support and Security",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-10-01",
+    "level": "Beginner"
+  },
+  {
+    "name": "Networking Basics",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-10-06",
+    "level": "Beginner"
+  },
+  {
+    "name": "Operating Systems Basics",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-09-30",
+    "level": "Beginner"
+  },
+  {
+    "name": "Python Essentials 1",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-10-07",
+    "level": "Beginner"
+  },
+  {
+    "name": "User Computer and Mobile Devices",
+    "provider": "Cisco Networking Academy",
+    "date": "2025-09-30",
+    "level": "Beginner"
+  }
+]
