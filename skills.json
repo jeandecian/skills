@@ -1,5 +1,11 @@
 [
   {
+    "name": "AI Ethics",
+    "provider": "DataCamp",
+    "date": "2025-02-19",
+    "level": "Basic"
+  },
+  {
     "name": "AI Fundamentals with IBM SkillsBuild",
     "provider": "Cisco Networking Academy",
     "date": "2025-08-20",
@@ -54,6 +60,18 @@
     "level": "Intermediate"
   },
   {
+    "name": "Generative AI for Business",
+    "provider": "DataCamp",
+    "date": "2025-02-19",
+    "level": "Basic"
+  },
+  {
+    "name": "Intermediate ChatGPT",
+    "provider": "DataCamp",
+    "date": "2025-02-19",
+    "level": "Basic"
+  },
+  {
     "name": "Introduction to Cybersecurity",
     "provider": "Cisco Networking Academy",
     "date": "2025-01-14",
@@ -96,9 +114,39 @@
     "level": "Beginner"
   },
   {
+    "name": "Understanding Artificial Intelligence",
+    "provider": "DataCamp",
+    "date": "2025-02-19",
+    "level": "Basic"
+  },
+  {
+    "name": "Understanding ChatGPT",
+    "provider": "DataCamp",
+    "date": "2025-02-18",
+    "level": "Basic"
+  },
+  {
+    "name": "Understanding Prompt Engineering",
+    "provider": "DataCamp",
+    "date": "2025-02-19",
+    "level": "Basic"
+  },
+  {
+    "name": "Understanding the EU AI Act",
+    "provider": "DataCamp",
+    "date": "2025-02-19",
+    "level": "Basic"
+  },
+  {
     "name": "User Computer and Mobile Devices",
     "provider": "Cisco Networking Academy",
     "date": "2025-09-30",
     "level": "Beginner"
+  },
+  {
+    "name": "Working with the OpenAI API",
+    "provider": "DataCamp",
+    "date": "2025-02-19",
+    "level": "Basic"
   }
 ]
