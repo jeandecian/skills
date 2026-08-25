@@ -4,6 +4,184 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jean Decian - Skills Wall</title>
+    <style>
+      :root {
+        --card-beginner-bg: #e3f2fd;
+        --card-beginner-border: #bbdefb;
+        --card-beginner-text: #0d47a1;
+
+        --card-intermediate-bg: #fff3e0;
+        --card-intermediate-border: #ffe0b2;
+        --card-intermediate-text: #e65100;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        line-height: 1.5;
+        background: #fafafa;
+        color: #212529;
+
+        width: 100%;
+        max-width: 1320px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+        box-sizing: border-box;
+      }
+
+      .header-container {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+        font-weight: 800;
+        margin: 0 0 0.25rem 0;
+        color: #111;
+      }
+
+      .subtitle {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #6c757d;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .provider-section {
+        margin-bottom: 2.5rem;
+      }
+
+      .provider-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 0.3rem;
+        margin-bottom: 1.25rem;
+        color: #444;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.25rem;
+        padding: 0;
+        list-style: none;
+      }
+
+      .skill-card {
+        border-radius: 8px;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+      }
+
+      .skill-card.level-beginner {
+        background-color: var(--card-beginner-bg);
+        border: 1px solid var(--card-beginner-border);
+      }
+
+      .skill-card.level-intermediate {
+        background-color: var(--card-intermediate-bg);
+        border: 1px solid var(--card-intermediate-border);
+      }
+
+      .skill-name {
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+
+      .skill-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .level-beginner .skill-meta {
+        color: var(--card-beginner-text);
+      }
+
+      .level-intermediate .skill-meta {
+        color: var(--card-intermediate-text);
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header class="header-container">
+      <h1>Jean Decian</h1>
+      <p class="subtitle">Skills Wall</p>
+    </header>
+    <main id="skills-container">Loading skills...</main>
+    <script type="module">
+      const container = document.getElementById("skills-container");
+
+      try {
+        const res = await fetch("skills.json");
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        const skills = await res.json();
+
+        container.innerHTML = "";
+
+        const groups = {};
+        skills.forEach((item) => {
+          const provider = item.provider || "Uncategorized";
+          if (!groups[provider]) groups[provider] = [];
+          groups[provider].push(item);
+        });
+
+        Object.keys(groups)
+          .sort()
+          .forEach((provider) => {
+            const section = document.createElement("section");
+            section.className = "provider-section";
+
+            const title = document.createElement("h2");
+            title.className = "provider-title";
+            title.textContent = provider;
+
+            const grid = document.createElement("ul");
+            grid.className = "skills-grid";
+
+            groups[provider].forEach((item) => {
+              const card = document.createElement("li");
+              const levelClass = item.level
+                ? `level-${item.level.toLowerCase()}`
+                : "";
+              card.className = `skill-card ${levelClass}`;
+
+              const year = item.date ? item.date.split("-")[0] : "";
+
+              card.innerHTML = `
+                <div class="skill-name">${item.name}</div>
+                <div class="skill-meta">
+                  <span>${item.level}</span>
+                  <span>${year}</span>
+                </div>
+              `;
+              grid.appendChild(card);
+            });
+
+            section.appendChild(title);
+            section.appendChild(grid);
+            container.appendChild(section);
+          });
+      } catch (err) {
+        console.error("Error fetching JSON:", err);
+        container.innerText = "Failed to load skills.";
+      }
+    </script>
+  </body>
 </html>
